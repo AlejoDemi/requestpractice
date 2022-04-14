@@ -14,13 +14,14 @@ export default function Post(){
         data: {
             firstName: 'Alejo',
             lastName: 'Demitropulos',
-            email:'alejoDemi2@alejo.com',
+            email:'alejoDemi3@alejo.com',
         }
     });
 
 
     const goToPosts =()=>{
         navigate('/posts');
+
     }
 
     return(
