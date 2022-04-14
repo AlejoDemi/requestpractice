@@ -6,6 +6,7 @@ export default function Post(){
 
     const navigate = useNavigate()
     axios.defaults.headers.post['app-id'] = '62583dbf4929562cb9e6a8f3'
+    axios.defaults.headers.delete['app-id'] = '62583dbf4929562cb9e6a8f3'
 
 
     axios({
@@ -17,7 +18,6 @@ export default function Post(){
             email:'alejoDemi3@alejo.com',
         }
     });
-
 
     const goToPosts =()=>{
         navigate('/posts');
