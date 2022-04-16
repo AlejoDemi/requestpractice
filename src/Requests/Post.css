@@ -1,0 +1,30 @@
+.card{
+    width: 40%;
+    align-self: center;
+    border-radius: 20px;
+    border-width: 20px;
+    border-color: black;
+    margin-top: 100px;
+    background-color: #c56fa9;
+    padding: 10px;
+    margin-left: 400px;
+}
+
+.card--input{
+    align-self: auto;
+    margin-top: 10px;
+}
+
+.card--input--label{
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.card--input--box{
+    background-color: #b2ffe0;
+}
+
+.card--button{
+    margin-top: 15px;
+    margin-left: 15px;
+}

@@ -2,15 +2,16 @@
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";
+import './Post.css'
 
 export default function Post(){
 
     const navigate = useNavigate()
     axios.defaults.headers.post['app-id'] = '62583dbf4929562cb9e6a8f3'
     axios.defaults.headers.delete['app-id'] = '62583dbf4929562cb9e6a8f3'
-    const [firstName,serFirstName] = useState('Juan');
-    const [lastName,serLastName] = useState('Perez');
-    const [email,serEmail] = useState('juanP@gmail.com');
+    const [firstName,setFirstName] = useState('');
+    const [lastName,setLastName] = useState('');
+    const [email,setEmail] = useState('');
 
 
 
@@ -33,23 +34,34 @@ export default function Post(){
     }
 
     return(
-        <div>
+        <div className="card">
             <h2>Post a user!</h2>
-            <div>
-                <label>firstName</label>
-                <input type="text"/>
+            <div className="card--input">
+                <label className="card--input--label">firstName</label>
+                <input className="card--input--box"
+                       type="text"
+                       placeholder="enter first name..."
+                       onChange={e => setFirstName(e.target.value)}/>
             </div>
-            <div>
-                <label>lastName</label>
-                <input type="text"/>
+            <div className="card--input">
+                <label className="card--input--label">lastName</label>
+                <input className="card--input--box"
+                       type="text"
+                       placeholder="enter last name..."
+                       onChange={e => setLastName(e.target.value)}/>
             </div>
-            <div>
-                <label>email</label>
-                <input type="text"/>
+            <div className="card--input">
+                <label className="card--input--label">email</label>
+                <input className="card--input--box"
+                       type="text"
+                       placeholder="enter email..."
+                       onChange={e => setEmail(e.target.value)}/>
             </div>
             <span>
-                <button onClick={postNewUser}>post user</button>
-                <button onClick={goToPosts}>see all posts</button>
+                <button className="card--button"
+                        onClick={postNewUser}>post user</button>
+                <button className="card--button"
+                        onClick={goToPosts}>see all posts</button>
             </span>
 
 
