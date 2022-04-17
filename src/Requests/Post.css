@@ -5,9 +5,13 @@
     border-width: 20px;
     border-color: black;
     margin-top: 100px;
-    background-color: #c56fa9;
+    background: linear-gradient(
+            to bottom right,
+            #FFC687,#FC7246);
     padding: 10px;
-    margin-left: 400px;
+    flex-direction: column;
+    align-content: center;
+    flex: 1;
 }
 
 .card--input{
@@ -21,10 +25,15 @@
 }
 
 .card--input--box{
-    background-color: #b2ffe0;
+    background: linear-gradient(
+            to bottom right,
+            #FFDEF2,#E6F0FF);
 }
 
 .card--button{
     margin-top: 15px;
     margin-left: 15px;
+    background: linear-gradient(
+            to bottom right,
+            #FFDEF2,#E6F0FF);
 }
