@@ -14,26 +14,29 @@
     flex: 1;
 }
 
-.card--input{
+.card .input{
     align-self: auto;
     margin-top: 10px;
+    background: linear-gradient(
+            to bottom right,
+            #FFDEF2,#E6F0FF);
 }
 
-.card--input--label{
+.card .label{
     margin-right: 5px;
     font-size: 20px;
 }
 
-.card--input--box{
+.card .box{
     background: linear-gradient(
             to bottom right,
             #FFDEF2,#E6F0FF);
 }
 
-.card--button{
+.button{
     margin-top: 15px;
     margin-left: 15px;
-    background: linear-gradient(
+    background: #000/*linear-gradient(
             to bottom right,
-            #FFDEF2,#E6F0FF);
+            #FFDEF2,#E6F0FF);*/
 }

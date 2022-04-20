@@ -36,31 +36,31 @@ export default function Post(){
     return(
         <div className="card">
             <h2>Post a user!</h2>
-            <div className="card--input">
-                <label className="card--input--label">firstName</label>
+            <div className="input">
+                <label className="card--input--label">First name</label>
                 <input className="card--input--box"
                        type="text"
                        placeholder="enter first name..."
                        onChange={e => setFirstName(e.target.value)}/>
             </div>
-            <div className="card--input">
-                <label className="card--input--label">lastName</label>
+            <div className="input">
+                <label className="card--input--label">Last name</label>
                 <input className="card--input--box"
                        type="text"
                        placeholder="enter last name..."
                        onChange={e => setLastName(e.target.value)}/>
             </div>
-            <div className="card--input">
-                <label className="card--input--label">email</label>
-                <input className="card--input--box"
-                       type="text"
+            <div className="input">
+                <label className="label">email</label>
+                <input className="box"
+                       type="email"
                        placeholder="enter email..."
                        onChange={e => setEmail(e.target.value)}/>
             </div>
             <span>
-                <button className="card--button"
+                <button className="button"
                         onClick={postNewUser}>post user</button>
-                <button className="card--button"
+                <button className="button"
                         onClick={goToPosts}>see all posts</button>
             </span>
 
