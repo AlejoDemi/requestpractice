@@ -1,25 +1,27 @@
 .card{
     width: 40%;
+    max-width: 400px;
     align-self: center;
     border-radius: 20px;
-    border-width: 20px;
-    border-color: black;
-    margin-top: 100px;
+    border: 2px solid black;
     background: linear-gradient(
             to bottom right,
             #FFC687,#FC7246);
     padding: 10px;
     flex-direction: column;
     align-content: center;
-    flex: 1;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card .tittle{
+    font-family: 'MuseoModerno', serif;
 }
 
 .card .input{
     align-self: auto;
     margin-top: 10px;
-    background: linear-gradient(
-            to bottom right,
-            #FFDEF2,#E6F0FF);
 }
 
 .card .label{
@@ -31,12 +33,27 @@
     background: linear-gradient(
             to bottom right,
             #FFDEF2,#E6F0FF);
+    border-radius: 15px;
 }
 
 .button{
-    margin-top: 15px;
+    margin-top: 25px;
     margin-left: 15px;
-    background: #000/*linear-gradient(
+    background:linear-gradient(
             to bottom right,
-            #FFDEF2,#E6F0FF);*/
+            #FFDEF2,#E6F0FF);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.card .list{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+
+}
+
+.card .item{
+    display: flex;
 }

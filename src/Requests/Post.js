@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";
@@ -34,18 +33,19 @@ export default function Post(){
     }
 
     return(
+
         <div className="card">
-            <h2>Post a user!</h2>
+            <h2 className="tittle">Post a user!</h2>
             <div className="input">
-                <label className="card--input--label">First name</label>
-                <input className="card--input--box"
+                <label className="label">First name</label>
+                <input className="box"
                        type="text"
                        placeholder="enter first name..."
                        onChange={e => setFirstName(e.target.value)}/>
             </div>
             <div className="input">
-                <label className="card--input--label">Last name</label>
-                <input className="card--input--box"
+                <label className="label">Last name</label>
+                <input className="box"
                        type="text"
                        placeholder="enter last name..."
                        onChange={e => setLastName(e.target.value)}/>
@@ -65,7 +65,7 @@ export default function Post(){
             </span>
 
 
-        </div>
+            </div>
     )
 
 

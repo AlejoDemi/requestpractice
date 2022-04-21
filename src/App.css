@@ -1,5 +1,18 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+html,body,#root,.App{
+  height:100%;
+  width: 100%;
+
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  background: #282c34;
+
 }
 
 .App-logo {

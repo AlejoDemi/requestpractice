@@ -1,5 +1,7 @@
-import axios from "axios";
+
 import {useEffect, useState} from "react";
+import './Post.css'
+import axios from "axios";
 
 
 export default function PostedUsers() {
@@ -16,12 +18,14 @@ export default function PostedUsers() {
 
     },[])
 
+
+
     return (
-        <div>
-            <h3>Users Posted</h3>
-            <ul>
-                {users.map((user) => <li key={user.id}>{user.firstName + " "+user.id}</li>)}
-            </ul>
+        <div className="card">
+            <h3 className="tittle">Users Posted</h3>
+            <div className="list">
+                {users.map((user,i) => <div className="item" key={user.id}>{i+1}. {user.firstName + " "+user.lastName}</div>)}
+            </div>
         </div>
     );
 }
