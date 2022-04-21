@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import Post from "./Requests/Post";
 import PostedUsers from "./Requests/PostedUsers";
+import UserData from "./Requests/UserData";
 
 function App() {
 
@@ -17,6 +18,12 @@ function App() {
 
                     <Route path="/Posts"
                            element={<PostedUsers/>}/>
+
+                    <Route path="/UserData"
+                           element={<UserData/>}/>
+
+
+
 
                 </Routes>
         </div>

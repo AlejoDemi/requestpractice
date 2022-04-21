@@ -59,9 +59,9 @@ export default function Post(){
             </div>
             <span>
                 <button className="button"
-                        onClick={postNewUser}>post user</button>
+                        onClick={postNewUser}>Post</button>
                 <button className="button"
-                        onClick={goToPosts}>see all posts</button>
+                        onClick={goToPosts}>View </button>
             </span>
 
 
