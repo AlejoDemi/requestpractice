@@ -1,5 +1,6 @@
 .card{
-    height: 35%;
+    margin-top: 10px;
+    height: 65%;
     width: 400px;
     align-self: center;
     border-radius: 20px;
@@ -64,6 +65,7 @@
     border-radius: 15px;
     cursor: pointer;
     font-family: 'MuseoModerno', serif;
+
 }
 
 .card .list{
@@ -78,6 +80,7 @@
     display: flex;
     cursor: pointer;
     background: transparent;
+    text-decoration: underline;
     border: none;
     font-size: 20px;
 ;
@@ -89,4 +92,22 @@
                 to bottom right,
                 #6db8be, #3e93c0);
     }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loading-spinner {
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #383636; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
 }

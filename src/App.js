@@ -6,8 +6,15 @@ import {
 import Post from "./Requests/Post";
 import PostedUsers from "./Requests/PostedUsers";
 import UserData from "./Requests/UserData";
+import {useState} from "react";
 
 function App() {
+
+    const [data, setData] = useState();
+
+    const dataSent = (data) => {
+        setData(data);
+    }
 
     return (
         <div className="App">
@@ -17,10 +24,10 @@ function App() {
                            element={<Post/>}/>
 
                     <Route path="/Posts"
-                           element={<PostedUsers/>}/>
+                           element={<PostedUsers parentCallback={dataSent}/>}/>
 
                     <Route path="/UserData"
-                           element={<UserData/>}/>
+                           element={<UserData user={data}/>}/>
 
 
 
