@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import './Post.css'
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {SpinnerRoundFilled} from "spinners-react";
+
 
 
 export default function PostedUsers(props) {
@@ -13,12 +15,11 @@ export default function PostedUsers(props) {
     axios.defaults.headers.get['app-id'] = '62583dbf4929562cb9e6a8f3'
 
     useEffect(() => {
-        axios.get("https://dummyapi.io/data/v1/user?limit=25", {
+        axios.get("https://dummyapi.io/data/v1/user?limit=30", {
         })
             .then(function (response) {
                 setLoading(false);
                 setUsers(response.data.data);
-                console.log(response.data.data)
             })
 
     },[])
@@ -26,7 +27,6 @@ export default function PostedUsers(props) {
     const userInfo=(user)=>{
         props.parentCallback(user)
         navigate("/userData");
-        console.log(user.firstName)
     }
 
     return (
@@ -34,16 +34,19 @@ export default function PostedUsers(props) {
             <h3 className="tittle">Users Posted</h3>
             {
                 loading ?
-                    <div className="spinner-container">
-                        <div className="loading-spinner">
-                        </div>
-                    </div>
+                    <SpinnerRoundFilled style={{alignSelf:"center"}} size={50} thickness={100} speed={100} color="black" />
                     :
                     <div className="list">
                         {users.map((user,i) => <button className="item" key={user.id}
                                                        onClick={()=>userInfo(user)}>
                             {i+1}. {user.firstName + " "+user.lastName}</button>)}
                     </div>
+            }
+            {
+                users.length===0 ?
+                    <h3 style={{fontFamily:"MuseoModerno"}}>No users were posted</h3>
+                    :
+                    null
             }
 
         </div>

@@ -50,6 +50,11 @@
     text-align: center;
 }
 
+.card .box:focus{
+    background: #282c34;
+    color: white;
+}
+
 .card .box:focus::placeholder {
     color: transparent;
 
@@ -90,7 +95,7 @@
     .card {
         background:linear-gradient(
                 to bottom right,
-                #6db8be, #3e93c0);
+                #CA1D7E, #E35157, #F2703F);
     }
 }
 

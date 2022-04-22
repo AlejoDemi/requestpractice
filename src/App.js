@@ -14,6 +14,7 @@ function App() {
 
     const dataSent = (data) => {
         setData(data);
+        window.localStorage.setItem("user", JSON.stringify(data))
     }
 
     return (
@@ -27,7 +28,7 @@ function App() {
                            element={<PostedUsers parentCallback={dataSent}/>}/>
 
                     <Route path="/UserData"
-                           element={<UserData user={data}/>}/>
+                           element={<UserData/>}/>
 
 
 
