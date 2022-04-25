@@ -11,9 +11,9 @@
             to bottom right,
             #CA1D7E, #E35157, #F2703F);
     display: flex;
-    height: 350px;
-    width: 50%;
-    margin: auto auto auto 20px;
+    height: 300px;
+    width: 30%;
+    margin: auto 0 auto 20px;
     border-radius: 20px;
     padding: 20px;
     border: 5px solid black;
@@ -30,7 +30,7 @@
 
 .dataCard .picture{
     border-radius: 20px;
-    height: 50%;
+    height: 200px;
     margin: auto;
     border: 5px solid black;
 }
@@ -42,7 +42,8 @@
 
 .dataCard .info .icon{
     cursor: pointer;
-    margin: 10px auto ;
+    margin: 10px
+    auto ;
 }
 
 .dataCard .list{
@@ -53,33 +54,35 @@
 
 }
 
-.post{
-    height: 400px;
-    width: 400px;
-    margin:auto ;
-    justify-content: center;
-;
-
+.container .post{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(auto, auto);
 }
 
-.post .gallery {
-    height: 400px;
-    width: 400px;
+.post .box {
+    height: 230px;
+    width: 250px;
     display: flex;
     flex-direction: column;
-    overflow: auto;
-
-    border-radius: 40px;
-    border: 5px solid black;
+    border: 1px solid black;
+    border-radius: 15px;
+    background:linear-gradient(
+            to bottom right,
+            #CA1D7E, #E35157, #F2703F);
+    padding: 5px;
+    cursor: pointer;
 }
 
-.post .gallery img{
-    height: 100%; width: 100%;
-    flex-shrink: 0;
-    object-fit: cover;
-    position: sticky;
-    top: 0;
+.post .box img{
+    height: 75%;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto 0 auto ;
 }
+
 
 
 .dataCard .item{
@@ -92,3 +95,4 @@
     text-decoration: underline;
 ;
 }
+

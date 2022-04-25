@@ -73,6 +73,10 @@
 
 }
 
+.button:focus{
+    background: #282c34;
+}
+
 .card .list{
     display: flex;
     flex-direction: column;
@@ -89,6 +93,10 @@
     border: none;
     font-size: 20px;
 ;
+}
+
+.card .item:focus{
+    color: white;
 }
 
 @media only screen and (min-width: 600px) {

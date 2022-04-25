@@ -3,8 +3,9 @@ import {RiDeleteBinLine} from "react-icons/ri";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {AiTwotoneHeart} from "react-icons/ai";
 import {SpinnerRoundFilled} from "spinners-react";
+import {AiOutlineLike} from "react-icons/ai";
+import {Button} from "react-bootstrap";
 
 
 export default function UserData(props){
@@ -12,15 +13,14 @@ export default function UserData(props){
     axios.defaults.headers.delete['app-id'] = '62583dbf4929562cb9e6a8f3'
     axios.defaults.headers.get['app-id'] = '62583dbf4929562cb9e6a8f3'
     const navigate=useNavigate();
-    //const user=props.user;
-    const user = JSON.parse(window.localStorage.getItem("user"))
-    const [loadingPosts,setLoadingPosts]= useState(true)
+    const userID = JSON.parse(window.localStorage.getItem("user"))
+    const [user,setUser]=useState();
     const [posts,setPosts] =useState([]);
-    const [images, setImages] = useState([]);
-    const [showImages,setShowImages]=useState(false);
+
+
 
     const deleteUser=()=>{
-        axios.delete("https://dummyapi.io/data/v1/user/"+user.id)
+        axios.delete("https://dummyapi.io/data/v1/user/"+userID)
 
             .then(
                 function (){
@@ -29,77 +29,64 @@ export default function UserData(props){
             )
 
     }
+
+    const goToComments=(post)=>{//preguntarle a fede
+        props.parentCallback(post.id)
+        navigate("/Comments")
+    }
+
+
     useEffect(() => {
-        axios.get("https://dummyapi.io/data/v1/user/" + user.id + "/post")
+        axios.get("https://dummyapi.io/data/v1/user/" + userID)
             .then(function (response) {
-                setLoadingPosts(false);
+                setUser(response.data);
+            })
+        axios.get("https://dummyapi.io/data/v1/user/" + userID + "/post")
+            .then(function (response) {
                 setPosts(response.data.data);
             })
+    }, []);
 
-    },[])
-
-    const fillImages=()=>{
-        posts.map((postImage)=> images.push(postImage.image));
-        setImages(images);
-        console.log(images)
-        setShowImages(true)
-    }
 
 
     return(
         <div className="container">
-            <div className="dataCard">
-                <div className="info">
-                    <RiDeleteBinLine className="icon" size={30}
-                                     onClick={deleteUser}></RiDeleteBinLine>
-                    {
-                        user.picture!==undefined?
-                            <img className="picture" src={user.picture} alt={"no profile picture"}></img>
-                            :
-                            null
-                    }
+            {
+                user &&
+                <div className="dataCard">
+                    <div className="info">
+                        <RiDeleteBinLine className="icon" size={30}
+                                         onClick={deleteUser}></RiDeleteBinLine>
+                                <img className="picture" src={user.picture || ""} alt={"no profile picture"}></img>
+                        <div style={{margin:"auto"}}>
+                            <h3 className="name">{user.firstName +" "+user.lastName}</h3>
+                            <h4 style={{margin:"auto"}}>id: {user.id}</h4>
+                        </div>
 
-                    <div style={{margin:"auto"}}>
-                        <h3 className="name">{user.firstName +" "+user.lastName}</h3>
-                        <h4 style={{margin:"auto"}}>id: {user.id}</h4>
+                    </div>
+                    <div>
+
                     </div>
 
-                </div>
-                <div>
+
 
                 </div>
+
+            }
 
                 {
-                    loadingPosts?
-                        <div className="list">
-                            <SpinnerRoundFilled style={{alignSelf:"center"}} size={50} thickness={100} speed={100} color="black" />
-                        </div>
-                        :
-                        <div className="list">
-                                    <button onClick={()=>fillImages()} style={{
-                                        fontFamily:"MuseoModerno",
-                                        fontSize:"20px",border:"none",
-                                        background:"transparent",
-                                        textDecoration:"underline",
-                                        cursor:"pointer"
-                                    }}>Show posts</button>
-                        </div>
-
-
-                }
-
-            </div>
-
-
-                {
-                 showImages?
+                 posts &&
                      <div className={"post"}>
-                         <div className="gallery">
-                             {images.map((image)=> <img key={image} src={image} alt={"image"}/>)}/>
-                         </div>
+                             {posts.map((post)=>
+                                 <Button key={post.image} className="box" onClick={()=>goToComments(post)}>
+                                    <img src={post.image} alt={"image"}/>
+                                    <h3 style={{margin:"auto auto auto 10px "}}>{post.text}</h3>
+                                     <div style={{display:"flex",flexDirection:"row",margin:"auto"}}>
+                                         <h2 style={{margin:"auto auto auto 10px "}}>{post.likes}</h2>
+                                         <AiOutlineLike size={30}></AiOutlineLike>
+                                     </div>
+                                 </Button>)}
                      </div>
-                    :
-                    null
                 }
 
         </div>

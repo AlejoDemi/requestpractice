@@ -25,7 +25,7 @@ export default function PostedUsers(props) {
     },[])
 
     const userInfo=(user)=>{
-        props.parentCallback(user)
+        props.parentCallback(user.id)
         navigate("/userData");
     }
 
