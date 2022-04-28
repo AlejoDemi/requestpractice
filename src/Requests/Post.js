@@ -1,7 +1,8 @@
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";
-import './Post.css'
+import './Post.css';
+import 'animate.css';
 
 export default function Post(){
 
@@ -34,7 +35,7 @@ export default function Post(){
 
     return(
 
-        <div className="card">
+        <div className= "card">
             <h2 className="tittle">Post a user!</h2>
             <div className="input">
                 <label className="label">First name</label>

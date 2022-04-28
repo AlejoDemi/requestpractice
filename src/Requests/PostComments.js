@@ -40,7 +40,7 @@ export default function PostComments(props){
             {
                 (post && postComments) ?
 
-                <div className={"pictureContainer animate__hinge"}>
+                <div className={"pictureContainer"}>
                     <div className="picture">
                         <img  src={post.image}/>
                         <div style={{display:"flex",flexDirection:"row",margin:"auto", justifyContent:"center"}}>

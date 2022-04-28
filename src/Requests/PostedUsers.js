@@ -44,7 +44,7 @@ export default function PostedUsers(props) {
             }
             {
                 users.length===0 ?
-                    <h3 style={{fontFamily:"MuseoModerno"}}>No users were posted</h3>
+                    <h3 style={{fontFamily:"Exo"}}>No users were posted</h3>
                     :
                     null
             }
