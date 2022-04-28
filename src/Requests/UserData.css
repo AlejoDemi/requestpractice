@@ -46,6 +46,10 @@
     auto ;
 }
 
+.info .icon:hover{
+    color: white;
+}
+
 .dataCard .list{
     display: flex;
     flex-direction: column;
@@ -58,7 +62,7 @@
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5px;
+    grid-gap: 10px;
     grid-auto-rows: minmax(auto, auto);
 }
 
@@ -76,8 +80,15 @@
     cursor: pointer;
 }
 
+.post .box:hover{
+    background: #CA1D7E;
+
+
+}
+
 .post .box img{
-    height: 75%;
+    object-fit: cover;
+    height: 100%;
     width: 100%;
     border-radius: 10px;
     margin: 0 auto 0 auto ;

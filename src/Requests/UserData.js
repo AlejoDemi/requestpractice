@@ -52,7 +52,7 @@ export default function UserData(props){
     return(
         <div className="container">
             {
-                user &&
+                user ?
                 <div className="dataCard">
                     <div className="info">
                         <RiDeleteBinLine className="icon" size={30}
@@ -71,22 +71,25 @@ export default function UserData(props){
 
 
                 </div>
+                    :
+                    <div style={{display:"flex", alignContent:"center",height:"100vh"}}>
+                        <SpinnerRoundFilled style={{alignSelf:"center",margin:"auto"}} size={100} thickness={100} speed={100} color="black" />
+                    </div>
 
             }
 
                 {
-                 posts &&
+                 posts?
                      <div className={"post"}>
                              {posts.map((post)=>
                                  <Button key={post.image} className="box" onClick={()=>goToComments(post)}>
                                     <img src={post.image} alt={"image"}/>
-                                    <h3 style={{margin:"auto auto auto 10px "}}>{post.text}</h3>
-                                     <div style={{display:"flex",flexDirection:"row",margin:"auto"}}>
-                                         <h2 style={{margin:"auto auto auto 10px "}}>{post.likes}</h2>
-                                         <AiOutlineLike size={30}></AiOutlineLike>
-                                     </div>
                                  </Button>)}
                      </div>
+                    :
+                    <div style={{display:"flex", alignContent:"center",height:"100vh"}}>
+                    <SpinnerRoundFilled style={{alignSelf:"center",margin:"auto"}} size={100} thickness={100} speed={100} color="black" />
+                    </div>
                 }
 
         </div>

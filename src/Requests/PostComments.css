@@ -1,0 +1,58 @@
+.pictureContainer{
+    display: flex;
+    flex-direction: row;
+    height: 700px;
+    width: 900px;
+    overflow: hidden;
+    margin: 50px auto auto auto ;
+    background:linear-gradient(
+            to bottom right,
+            #CA1D7E, #E35157, #F2703F);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.pictureContainer .picture{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 600px;
+    border: 5px solid #282c34;
+    border-radius: 15px;
+    padding: 2px;
+    background: white;
+
+}
+
+.picture img{
+    margin: auto;
+    height: 95%;
+    width: 98% ;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.picture .icon{
+    align-self: center;
+
+}
+
+.picture .icon:hover{
+    color: #E35157
+}
+
+.pictureContainer .comments{
+    margin: 0 auto auto auto ;
+    padding:  0 10px 10px 10px;
+    width: 30%;
+
+}
+
+.comments .icon{
+    margin: auto 0 auto auto;
+    cursor: pointer;
+}
+
+.comments .icon:hover{
+    color: white;
+}
