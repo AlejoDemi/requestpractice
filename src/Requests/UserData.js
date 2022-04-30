@@ -3,10 +3,9 @@ import {RiDeleteBinLine} from "react-icons/ri";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {SpinnerRoundFilled} from "spinners-react";
-import {AiOutlineLike} from "react-icons/ai";
 import {Button} from "react-bootstrap";
 import Spinner from "../Components/Spinner";
+import {useSelector} from "react-redux";
 
 
 export default function UserData(props){
@@ -14,7 +13,7 @@ export default function UserData(props){
     axios.defaults.headers.delete['app-id'] = '62583dbf4929562cb9e6a8f3'
     axios.defaults.headers.get['app-id'] = '62583dbf4929562cb9e6a8f3'
     const navigate=useNavigate();
-    const userID = JSON.parse(window.localStorage.getItem("user"))
+    const userID = useSelector(state => state.User)
     const [user,setUser]=useState();
     const [posts,setPosts] =useState([]);
 
@@ -30,7 +29,7 @@ export default function UserData(props){
 
     }
 
-    const goToComments=(post)=>{//preguntarle a fede
+    const goToComments=(post)=>{
         props.parentCallback(post.id)
         navigate("/Comments")
     }
