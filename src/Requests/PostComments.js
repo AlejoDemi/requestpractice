@@ -5,6 +5,7 @@ import "./PostComments.css"
 import {SpinnerRoundFilled} from "spinners-react";
 import {useNavigate} from "react-router-dom";
 import 'animate.css';
+import Spinner from "../Components/Spinner";
 
 
 export default function PostComments(props){
@@ -44,11 +45,14 @@ export default function PostComments(props){
                     <div className="picture">
                         <img  src={post.image}/>
                         <div style={{display:"flex",flexDirection:"row",margin:"auto", justifyContent:"center"}}>
-                            <div style={{display:"flex",flexDirection:"row",width:"20%",justifyContent:"flex-start"}}>
-                                <h2>{post.likes}</h2>
-                                <AiOutlineLike  className="icon" size={30}></AiOutlineLike>
+                            <div style={{display:"flex",flexDirection:"row",width:"80px",justifyContent:"flex-start"}}>
+                                <h2 style={{alignSelf:"center"}}>{post.likes}</h2>
+                                <AiOutlineLike  className="icon" style={{height:"30px",width:"30px"}}></AiOutlineLike>
                             </div>
-                            <h3 style={{margin:"auto auto auto 20px "}}>{post.text}</h3>
+                            <div style={{display:"flex",width:"500px"}}>
+                                <h3 style={{fontSize:"auto",margin:"auto"}}>{post.text}</h3>
+                            </div>
+
                         </div>
                     </div>
                     <div className="comments">
@@ -56,19 +60,17 @@ export default function PostComments(props){
                             <AiOutlineCloseCircle  onClick={goBack} size={35} className="icon"></AiOutlineCloseCircle>
                         </div>
 
-                        <h1>Comments</h1>
+                        <h1 style={{color:"lightgrey"}}>Comments</h1>
                         {postComments.length>0?
                         postComments.map((comment)=>
-                            <h3 key={comment.id}>- {comment.message}</h3>)
+                            <h3 key={comment.id} style={{color:"lightgray"}}>- {comment.message}</h3>)
                             :
-                            <h4>No comments here...</h4>}
+                            <h4 style={{color:"lightgrey"}}>No comments here...</h4>}
                     </div>
 
                 </div>
                     :
-                    <div style={{display:"flex", alignContent:"center",height:"100vh"}}>
-                        <SpinnerRoundFilled style={{alignSelf:"center",margin:"auto"}} size={100} thickness={100} speed={100} color="black" />
-                    </div>
+                 <Spinner></Spinner>
 
             }
         </div>

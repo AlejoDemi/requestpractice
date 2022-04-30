@@ -5,9 +5,7 @@
     width: 900px;
     overflow: hidden;
     margin: 50px auto auto auto ;
-    background:linear-gradient(
-            to bottom right,
-            #CA1D7E, #E35157, #F2703F);
+    background:#282c34;
     padding: 10px;
     border-radius: 20px;
 }
@@ -17,7 +15,7 @@
     flex-direction: column;
     height: 100%;
     width: 600px;
-    border: 5px solid #282c34;
+    border: 5px solid lightgray;
     border-radius: 15px;
     padding: 2px;
     background: white;
@@ -35,6 +33,7 @@
 
 .picture .icon{
     align-self: center;
+    animation: icon-move infinite 3s ease-in-out;
 
 }
 
@@ -52,8 +51,21 @@
 .comments .icon{
     margin: auto 0 auto auto;
     cursor: pointer;
+    color: white;
 }
 
 .comments .icon:hover{
-    color: white;
+    color: #E35157;
+}
+
+@keyframes icon-move {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px)
+    }
+    100% {
+        transform: translateY(0px)
+    }
 }

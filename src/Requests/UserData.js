@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {SpinnerRoundFilled} from "spinners-react";
 import {AiOutlineLike} from "react-icons/ai";
 import {Button} from "react-bootstrap";
+import Spinner from "../Components/Spinner";
 
 
 export default function UserData(props){
@@ -21,7 +22,6 @@ export default function UserData(props){
 
     const deleteUser=()=>{
         axios.delete("https://dummyapi.io/data/v1/user/"+userID)
-
             .then(
                 function (){
                     navigate(-1)
@@ -50,9 +50,9 @@ export default function UserData(props){
 
 
     return(
+
+        user && posts ?
         <div className="container">
-            {
-                user ?
                 <div className="dataCard">
                     <div className="info">
                         <RiDeleteBinLine className="icon" size={30}
@@ -60,7 +60,7 @@ export default function UserData(props){
                                 <img className="picture" src={user.picture || ""} alt={"no profile picture"}></img>
                         <div style={{margin:"auto"}}>
                             <h3 className="name">{user.firstName +" "+user.lastName}</h3>
-                            <h4 style={{margin:"auto"}}>id: {user.id}</h4>
+                            <h4 style={{margin:"auto",color:"white"}}>id: {user.id}</h4>
                         </div>
 
                     </div>
@@ -71,28 +71,19 @@ export default function UserData(props){
 
 
                 </div>
-                    :
-                    <div style={{display:"flex", alignContent:"center",height:"100vh"}}>
-                        <SpinnerRoundFilled style={{alignSelf:"center",margin:"auto"}} size={100} thickness={100} speed={100} color="black" />
-                    </div>
-
-            }
-
-                {
-                 posts?
-                     <div className={"post"}>
+            <div className={"post"}>
                              {posts.map((post)=>
+
                                  <Button key={post.image} className="box" onClick={()=>goToComments(post)}>
                                     <img src={post.image} alt={"image"}/>
                                  </Button>)}
                      </div>
-                    :
-                    <div style={{display:"flex", alignContent:"center",height:"100vh"}}>
-                    <SpinnerRoundFilled style={{alignSelf:"center",margin:"auto"}} size={100} thickness={100} speed={100} color="black" />
-                    </div>
-                }
+
+
 
         </div>
+            :
+            <Spinner/>
 
     )
 }

@@ -5,9 +5,10 @@
     align-self: center;
     border-radius: 20px;
     border: 2px solid black;
-    background: linear-gradient(
+    background: #282c34;
+    /*background: linear-gradient(
             to bottom right,
-            #FFC687,#FC7246);
+            #FFC687,#FC7246);*/
     padding: 10px;
     flex-direction: column;
     align-content: center;
@@ -19,6 +20,7 @@
 .card .tittle{
     font-family: "Exo", serif;
     font-size: 30px;
+    color: white;
 }
 
 .card .input{
@@ -27,7 +29,7 @@
     justify-content: center;
     flex-direction: column;
     width: 80%;
-    margin: auto;
+    margin: 10px auto auto auto;
 }
 
 
@@ -35,6 +37,7 @@
     margin-right: 5px;
     font-size: 20px;
     font-family: 'Exo', serif;
+    color: white;
 }
 
 .card .box{
@@ -48,6 +51,7 @@
 
 .card .box::placeholder {
     text-align: center;
+    color: #282c34;
 }
 
 .card .box:focus{
@@ -64,13 +68,18 @@
     height: 60%;
     width: 20%;
     margin: 15px 10px;
-    background:linear-gradient(
-            to bottom right,
-            #FFDEF2,#E6F0FF);
+    background:#E35157;
     border-radius: 15px;
     cursor: pointer;
     font-family: 'Exo', serif;
+    border: none;
+    color: white;
+    font-size: 15px;
 
+}
+
+.button:hover{
+    background: #CA1D7E;
 }
 
 .button:focus{
@@ -92,11 +101,12 @@
     text-decoration: underline;
     border: none;
     font-size: 20px;
+    color: white;
 ;
 }
 
 .card .item:hover{
-    color: white;
+    color: #E35157;
 }
 
 .card .item:focus{
@@ -105,9 +115,10 @@
 
 @media only screen and (min-width: 600px) {
     .card {
-        background:linear-gradient(
+        background: #282c34;
+       /* background:linear-gradient(
                 to bottom right,
-                #CA1D7E, #E35157, #F2703F);
+                #CA1D7E, #E35157, #F2703F);*/
     }
 }
 
