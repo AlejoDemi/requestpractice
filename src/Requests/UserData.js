@@ -5,7 +5,6 @@ import { useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
 import Spinner from "../Components/Spinner";
-import {useSelector} from "react-redux";
 
 
 export default function UserData(props){
@@ -30,7 +29,7 @@ export default function UserData(props){
     }
 
     const goToComments=(post)=>{
-        props.parentCallback(post.id)
+        window.localStorage.setItem("postId",JSON.stringify(post));
         navigate("/Comments")
     }
 
@@ -73,7 +72,7 @@ export default function UserData(props){
             <div className={"post"}>
                              {posts.map((post)=>
 
-                                 <Button key={post.image} className="box" onClick={()=>goToComments(post)}>
+                                 <Button key={post.image} className="box" onClick={()=>goToComments(post.id)}>
                                     <img src={post.image} alt={"image"}/>
                                  </Button>)}
                      </div>
