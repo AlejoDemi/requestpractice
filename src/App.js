@@ -11,12 +11,6 @@ import PostComments from "./Requests/PostComments";
 
 function App() {
 
-    const [data, setData] = useState();
-
-    const dataSent = (data) => {
-        setData(data);
-        window.localStorage.setItem("user", JSON.stringify(data))
-    }
 
     return (
         <div className="App">
@@ -28,10 +22,10 @@ function App() {
                            element={<Post/>}/>
 
                     <Route path="/Posts"
-                           element={<PostedUsers parentCallback={dataSent}/>}/>
+                           element={<PostedUsers/>}/>
 
                     <Route path="/UserData"
-                           element={<UserData parentCallback/>}/>
+                           element={<UserData/>}/>
 
                     <Route path="/Comments"
                            element={<PostComments/>}/>

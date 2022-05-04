@@ -13,7 +13,7 @@ export default function UserData(props){
     axios.defaults.headers.delete['app-id'] = '62583dbf4929562cb9e6a8f3'
     axios.defaults.headers.get['app-id'] = '62583dbf4929562cb9e6a8f3'
     const navigate=useNavigate();
-    const userID = useSelector(state => state.User)
+    const userID=JSON.parse(window.localStorage.getItem("userID"));
     const [user,setUser]=useState();
     const [posts,setPosts] =useState([]);
 
