@@ -25,10 +25,10 @@ function App() {
                            element={<PostedUsers/>}/>
 
                     <Route path="/UserData"
-                           element={<UserData/>}/>
+                           element={<UserData />}/>
 
                     <Route path="/Comments"
-                           element={<PostComments/>}/>
+                           element={<PostComments />}/>
 
 
 

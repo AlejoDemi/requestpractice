@@ -9,8 +9,9 @@ export default function PostedUsers(props) {
     const navigate = useNavigate();
     const { data }=useGetUsersQuery();
 
+
     const userInfo=(user)=>{
-        window.localStorage.setItem("userID",JSON.stringify(user))
+        window.localStorage.setItem("userId",JSON.stringify(user));
         navigate("/userData");
     }
 

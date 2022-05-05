@@ -6,23 +6,19 @@ import {SpinnerRoundFilled} from "spinners-react";
 import {useNavigate} from "react-router-dom";
 import 'animate.css';
 import Spinner from "../Components/Spinner";
+import {useGetCommentsByPostIdQuery} from "../api/apiSlice";
 
 
 export default function PostComments(props){
 
     const postID=JSON.parse(window.localStorage.getItem("postId"));
-    const [postComments ,setPostComments] = useState([]);
+    const {data}=useGetCommentsByPostIdQuery(postID);
+    axios.defaults.headers.common['app-id']= '62583dbf4929562cb9e6a8f3';
     const [post ,setPost] = useState();
     const navigate=useNavigate();
 
-    axios.defaults.headers.get['app-id'] = '62583dbf4929562cb9e6a8f3'
 
     useEffect(()=>{
-        axios.get("https://dummyapi.io/data/v1/post/" + postID + "/comment")
-            .then(function (response) {
-                setPostComments(response.data.data);
-                console.log(response.data.data)
-            })
         axios.get("https://dummyapi.io/data/v1/post/"+postID)
             .then(function (response){
                 setPost(response.data);
@@ -39,7 +35,7 @@ export default function PostComments(props){
         <div>
 
             {
-                (post && postComments) ?
+                (post && data) ?
 
                 <div className={"pictureContainer"}>
                     <div className="picture">
@@ -61,8 +57,8 @@ export default function PostComments(props){
                         </div>
 
                         <h1 style={{color:"lightgrey"}}>Comments</h1>
-                        {postComments.length>0?
-                        postComments.map((comment)=>
+                        {data.data.length>0?
+                        data.data.map((comment)=>
                             <h3 key={comment.id} style={{color:"lightgray"}}>- {comment.message}</h3>)
                             :
                             <h4 style={{color:"lightgrey"}}>No comments here...</h4>}
